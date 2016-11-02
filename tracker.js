@@ -1,5 +1,15 @@
 var trackedItems = [];
 $(document).ready(function () {
+    //Check if index is already in use
+    var localStorageSet = checkLocalStorage("tracked");
+    if (localStorageSet) {
+        trackedItems = extractTrackedItems("tracked");
+        for (i = 0; i < trackedItems.length; i++) {
+            var pTag = document.createElement("p");
+            pTag.innerHTML = trackedItems[i];
+            $("#tracking").prepend(pTag);
+        }
+    }
     $('#add').click(function (e) {
         e.preventDefault();
         var pTag = document.createElement("p");
@@ -23,4 +33,20 @@ function storageAvailable(type) {
     catch (e) {
         return false;
     }
+}
+
+function checkLocalStorage(itemName)
+/*Checks localstorage to see if data already exists*/
+{
+    if (localStorage.getItem(itemName)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function extractTrackedItems(itemName) {
+    var rawList = localStorage.getItem(itemName);
+    return rawList.split(",")
 }
