@@ -58,3 +58,7 @@ function extractTrackedItems(itemName) {
     var rawList = localStorage.getItem(itemName);
     return rawList.split(",")
 }
+
+function calculateTimeDifference(startTime, currentTime) {
+    return currentTime - startTime;
+}
