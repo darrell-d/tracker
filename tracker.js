@@ -20,6 +20,10 @@ $(document).ready(function () {
         $("#entry").val("")
         localStorage.setItem("tracked", trackedItems);
     });
+    $("#clear").click(function () {
+        localStorage.clear();
+        $("#tracking").html("");
+    });
 });
 /***Functions***/
 function storageAvailable(type) {
