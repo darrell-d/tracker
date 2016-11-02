@@ -6,19 +6,27 @@ $(document).ready(function () {
         trackedItems = extractTrackedItems("tracked");
         for (i = 0; i < trackedItems.length; i++) {
             var pTag = document.createElement("p");
-            pTag.innerHTML = trackedItems[i];
+            var payload = trackedItems[i].split(":");
+            pTag.innerHTML = payload[0];
+            pTag.setAttribute("startTime", payload[1]);
             $("#tracking").prepend(pTag);
         }
     }
     $('#add').click(function (e) {
         e.preventDefault();
         var pTag = document.createElement("p");
+        var currentTime = Math.floor(Date.now() / 1000);
         pTag.innerHTML = $("#entry").val();
         trackedItems.push($("#entry").val());
-        pTag.setAttribute("id", Math.floor(Date.now() / 1000));
+        pTag.setAttribute("startTime", currentTime);
         $("#tracking").prepend(pTag);
         $("#entry").val("")
-        localStorage.setItem("tracked", trackedItems);
+        localStorage.setItem("tracked", trackedItems + ":" + currentTime);
+    });
+    $("#clear").click(function () {
+        localStorage.clear();
+        $("#tracking").html("");
+        trackedItems = [];
     });
 });
 /***Functions***/
@@ -49,4 +57,8 @@ function checkLocalStorage(itemName)
 function extractTrackedItems(itemName) {
     var rawList = localStorage.getItem(itemName);
     return rawList.split(",")
+}
+
+function calculateTimeDifference(startTime, currentTime) {
+    return currentTime - startTime;
 }
