@@ -80,7 +80,7 @@ function initTimer() {
 
 function appendTime(pTag, currentTime) {
     var taskTimer = document.createElement("span");
-    taskTimer.innerHTML = (Date.now() / 1000) - currentTime
+    taskTimer.innerHTML = Math.floor((Date.now() / 1000) - currentTime);
     if (pTag.childElementCount > 1) {
         pTag.removeChild(pTag.lastChild)
         pTag.appendChild(taskTimer);
