@@ -16,9 +16,12 @@ $(document).ready(function () {
         e.preventDefault();
         var pTag = document.createElement("p");
         var currentTime = Math.floor(Date.now() / 1000);
-        pTag.innerHTML = $("#entry").val();
+        var taskName = document.createElement("span");
+        taskName.innerHTML = $("#entry").val();
+        pTag.appendChild(taskName);
         trackedItems.push($("#entry").val());
         pTag.setAttribute("startTime", currentTime);
+        pTag = appendTime(pTag, currentTime);
         $("#tracking").prepend(pTag);
         $("#entry").val("")
         localStorage.setItem("tracked", trackedItems + ":" + currentTime);
@@ -28,6 +31,7 @@ $(document).ready(function () {
         $("#tracking").html("");
         trackedItems = [];
     });
+    initTimer();
 });
 /***Functions***/
 function storageAvailable(type) {
@@ -61,4 +65,26 @@ function extractTrackedItems(itemName) {
 
 function calculateTimeDifference(startTime, currentTime) {
     return currentTime - startTime;
+}
+
+function initTimer() {
+    var intervalID = setInterval(function () {
+        //Stop loop if no timer exist
+        $('p').each(function () {
+            appendTime(this, $(this).attr("startTime"))
+        });
+    }, 1000);
+}
+
+function appendTime(pTag, currentTime) {
+    var taskTimer = document.createElement("span");
+    taskTimer.innerHTML = (Date.now() / 1000) - currentTime
+    if (pTag.childElementCount > 1) {
+        pTag.removeChild(pTag.lastChild)
+        pTag.appendChild(taskTimer);
+    }
+    else {
+        pTag.appendChild(taskTimer);
+    }
+    return pTag;
 }
