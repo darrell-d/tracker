@@ -6,8 +6,10 @@ $(document).ready(function () {
         trackedItems = extractTrackedItems("tracked");
         for (i = 0; i < trackedItems.length; i++) {
             var pTag = document.createElement("p");
+            var taskName = document.createElement("span");
             var payload = trackedItems[i].split(":");
-            pTag.innerHTML = payload[0];
+            taskName.innerHTML = payload[0];
+            pTag.appendChild(taskName);
             pTag.setAttribute("startTime", payload[1]);
             $("#tracking").prepend(pTag);
         }
@@ -19,12 +21,12 @@ $(document).ready(function () {
         var taskName = document.createElement("span");
         taskName.innerHTML = $("#entry").val();
         pTag.appendChild(taskName);
-        trackedItems.push($("#entry").val());
+        trackedItems.push($("#entry").val() + ":" + currentTime);
         pTag.setAttribute("startTime", currentTime);
         pTag = appendTime(pTag, currentTime);
         $("#tracking").prepend(pTag);
         $("#entry").val("")
-        localStorage.setItem("tracked", trackedItems + ":" + currentTime);
+        localStorage.setItem("tracked", trackedItems);
     });
     $("#clear").click(function () {
         localStorage.clear();
