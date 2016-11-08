@@ -54,6 +54,8 @@ button:hover
 .taskHolder
 {
     margin: 15px 0px;
+    border-bottom: 1px solid #102940;
+    padding-bottom: 10px;
 }
 .close
 {
@@ -65,7 +67,7 @@ button:hover
 }
 .trackerName
 {
-    font-family: Georgia;
+    font-family: Arial;
     font-size: 30pt;
     margin-right: 20px;
 }
