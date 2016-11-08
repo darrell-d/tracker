@@ -43,6 +43,17 @@ $(document).ready(function () {
 
 
 /***Functions***/
+function padZero(number)
+{
+    if(number.length == 1)
+    {
+        return "0" +  number;
+    }
+    else
+    {
+        return number;
+    }
+}
 function storageAvailable(type) {
     try {
         var storage = window[type]
@@ -88,7 +99,18 @@ function initTimer() {
 
 function appendTime(htmlTag, startTime) {
 
-    htmlTag.lastChild.innerHTML = Math.floor(calculateTimeDifference(startTime, Date.now() / 1000));
+    var secondsElapsed = Math.floor(calculateTimeDifference(startTime, Date.now() / 1000));
+    var humanReadableTimeElapsed = ""
+    var time = [0,0,0,0,0,0]; // Y:M:W:D:H:S
+
+    time[5] = padZero(secondsElapsed % 60);
+    time[4] = padZero(Math.floor(secondsElapsed / 60) );
+    time[3] = padZero(Math.floor(time[4] / (60 * 60)));
+    time[2] = padZero(Math.floor(time[3] / (60 * 60 * 24)));
+    
+    humanReadableTimeElapsed = time[0] + ":" + time[1] + ":" + time[2] + ":" + time[3] + ":" + time[4] + ":" + time[5];
+    
+    htmlTag.lastChild.innerHTML =  humanReadableTimeElapsed;
 }
 
 function addTask(currentTime,taskName) {
