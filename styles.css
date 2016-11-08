@@ -10,7 +10,7 @@ hr
     color:#FFB742;
     border: 1px solid #FFB742;
     margin: 15px 0px;
-    width: 65%;
+    width: 99%;
 }
 
 input {
@@ -50,6 +50,10 @@ button:hover
     width: 201px;
     float: right;
 }
+#tracking
+{
+    width:100%;
+}
 
 .taskHolder
 {
@@ -61,7 +65,6 @@ button:hover
 {
     font-size: 24pt;
     vertical-align: initial;
-    margin- right: 10px;
     cursor: pointer;
     margin-right: 20px;
 }
@@ -75,12 +78,17 @@ button:hover
 {
     font-family: monospace;
     font-size: 24pt;
+    float: right;
 }
 .left, .right
 {
     display: inline-block;
 }
-.right
+.left
 {
+    width:100%;
+}
+.right {
+    position: relative;
     float:right;
 }
