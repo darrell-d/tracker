@@ -105,8 +105,8 @@ function appendTime(htmlTag, startTime) {
     var time = [0,0,0,0,0,0]; // Y:M:W:D:H:S
 
     time[5] = padZero(secondsElapsed % 60);
-    time[4] = padZero(Math.floor(secondsElapsed / 60) );
-    time[3] = padZero(Math.floor(time[4] / (60 * 60)));
+    time[4] = padZero(Math.floor(secondsElapsed % (60 * 60) / 60 ));
+    time[3] = padZero(Math.floor(secondsElapsed / (60 * 60)));
     time[2] = padZero(Math.floor(time[3] / (60 * 60 * 24)));
     
     humanReadableTimeElapsed = time[0] + ":" + time[1] + ":" + time[2] + ":" + time[3] + ":" + time[4] + ":" + time[5];
