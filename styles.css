@@ -1,0 +1,84 @@
+body {
+    font-family: Arial;
+    font-size: 12pt;
+    color: #102940;
+    line-height: 30px;
+    background-color: #FFFFFF;
+}
+hr
+{
+    color:#FFB742;
+    border: 1px solid #FFB742;
+    margin: 15px 0px;
+    width: 65%;
+}
+
+input {
+    color: #102940;
+    height: 47px;
+    font-size: 16pt;
+    margin-right: 15px;
+    padding-left: 5px;
+}
+
+button {
+    color: white;
+    background-color: #42A4FF;
+    border: none;
+    padding: 15px 35px;
+    cursor: pointer;
+    font-size: 16pt;
+    margin-right:15px;
+}
+button:hover
+{
+    background-color: #FFB742;
+}
+
+#app {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 20px;
+    border: solid 5px #102940;
+    margin-top: 50px;
+    box-shadow: 4px 4px 0px #FFB742;
+}
+#clock
+{
+    width: 201px;
+    float: right;
+}
+
+.taskHolder
+{
+    margin: 15px 0px;
+}
+.close
+{
+    font-size: 24pt;
+    vertical-align: initial;
+    margin- right: 10px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.trackerName
+{
+    font-family: Georgia;
+    font-size: 30pt;
+    margin-right: 20px;
+}
+.timeElapsed
+{
+    font-family: monospace;
+    font-size: 24pt;
+}
+.left, .right
+{
+    display: inline-block;
+}
+.right
+{
+    float:right;
+}
