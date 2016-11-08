@@ -49,6 +49,7 @@ section {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  font-family: Arial;
 }
 
 /* Grouping content
@@ -458,4 +459,10 @@ template {
 
 [hidden] {
   display: none;
+}
+
+p
+{
+    margin-top:5px;
+    margin-bottom:5px;
 }
