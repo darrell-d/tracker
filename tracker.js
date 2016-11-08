@@ -23,7 +23,7 @@ $(document).ready(function () {
         
         //capture time of click
         var currentTime = Math.floor(Date.now() / 1000);
-        var taskName = $("#entry").val();
+        var taskName = $("#entry").val().trim();
         trackedItems.push(taskName + ":" + currentTime);
         
         var taskHolder = addTask(currentTime,taskName);
@@ -45,6 +45,7 @@ $(document).ready(function () {
 /***Functions***/
 function padZero(number)
 {
+    number = number.toString();
     if(number.length == 1)
     {
         return "0" +  number;
