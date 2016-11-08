@@ -90,7 +90,6 @@ function calculateTimeDifference(startTime, currentTime) {
 
 function initTimer() {
     var intervalID = setInterval(function () {
-        //Stop loop if no timer exist
         $('p').each(function () {
             appendTime(this, $(this).attr("startTime"));
 
@@ -102,14 +101,33 @@ function appendTime(htmlTag, startTime) {
 
     var secondsElapsed = Math.floor(calculateTimeDifference(startTime, Date.now() / 1000));
     var humanReadableTimeElapsed = ""
-    var time = [0,0,0,0,0,0]; // Y:M:W:D:H:S
 
-    time[5] = padZero(secondsElapsed % 60);
-    time[4] = padZero(Math.floor(secondsElapsed % (60 * 60) / 60 ));
-    time[3] = padZero(Math.floor(secondsElapsed / (60 * 60)));
-    time[2] = padZero(Math.floor(time[3] / (60 * 60 * 24)));
+    var time = {
+        years: "00"
+        , months: "00"
+        , weeks: "00"
+        , days: "00"
+        , hours: "00"
+        , minutes: "00"
+        , seconds: "00"
+    };
+
+    time.seconds = padZero(secondsElapsed % 60);
     
-    humanReadableTimeElapsed = time[0] + ":" + time[1] + ":" + time[2] + ":" + time[3] + ":" + time[4] + ":" + time[5];
+    time.minutes = padZero(Math.floor(secondsElapsed % (60 * 60) / 60 ));
+    
+    time.hours = padZero(Math.floor(secondsElapsed / (60 * 60)));
+    
+    time.days = padZero(Math.floor(secondsElapsed / (60 * 60 * 24)));
+    
+    time.weeks = padZero(Math.floor(secondsElapsed / (60 * 60 * 24 * 7)));
+    
+    time.months = padZero(Math.floor(secondsElapsed / (60 * 60 * 24 * 7 * 4)));
+    
+    time.years = padZero(Math.floor(secondsElapsed / (60 * 60 * 24 * 7 * 4) * 12));
+    
+    
+    humanReadableTimeElapsed = time.years + ":" + time.months + ":" + time.weeks + ":" + time.days + ":" + time.hours + ":" + time.minutes + ":" + time.seconds;
     
     htmlTag.lastChild.innerHTML =  humanReadableTimeElapsed;
 }
