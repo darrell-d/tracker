@@ -11,21 +11,38 @@ $(document).ready(function () {
         //capture time of click
         var currentTime = Math.floor(Date.now() / 1000);
         var taskName = $("#entry").val().trim();
-        trackedItems.push(taskName + ":" + currentTime);
+        var timerItem = new Object();
+        timerItem[currentTime] = new Object();
+        timerItem[currentTime]["Task name"] = taskName;
+        timerItem[currentTime]["Start time"] = currentTime;;
+
+        trackedItems.push(timerItem);
 
         var taskHolder = addTask(currentTime, taskName);
 
         $("#tracking").prepend(taskHolder);
         $("#entry").val("");
 
-        localStorage.setItem("tracked", trackedItems);
+        localStorage.setItem("tracked", JSON.stringify(trackedItems));
     });
     $("#clear").click(function () {
-        localStorage.clear();
-        $("#tracking").html("");
-        trackedItems = [];
+        if (confirm("This will delete all tracked tasks. Are you sure you want to continue?")) {
+            localStorage.clear();
+            $("#tracking").html("");
+            trackedItems = [];
+        }
     });
 
+
+    $(".close").click(function () {
+        console.log('close');
+
+    });
+
+    $(".options").click(function () {
+        console.log('options');
+
+    });
 });
 
 
