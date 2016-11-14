@@ -55,6 +55,19 @@ button:hover {
     width: 100%;
 }
 
+#clear {
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+#clear:hover {
+    background-color: #ff4242;
+    border: 1px solid white;
+    color: white;
+}
+
 .taskHolder {
     margin: 15px 0px;
     border-bottom: 1px solid #102940;

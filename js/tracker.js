@@ -2,22 +2,9 @@ var trackedItems = [];
 
 $(document).ready(function () {
 
-    //Check if index is already in use
-    var localStorageSet = checkLocalStorage("tracked");
+    localStorageSetup();
+    initTimer();
 
-    if (localStorageSet) {
-
-        trackedItems = extractTrackedItems("tracked");
-
-        for (i = 0; i < trackedItems.length; i++) {
-            var payload = trackedItems[i].split(":");
-
-            var task = addTask(payload[1], payload[0]);
-
-
-            $("#tracking").prepend(task);
-        }
-    }
     $('#add').click(function (e) {
         e.preventDefault();
 
@@ -38,7 +25,7 @@ $(document).ready(function () {
         $("#tracking").html("");
         trackedItems = [];
     });
-    initTimer();
+
 });
 
 
@@ -155,4 +142,23 @@ function addTask(currentTime, taskName) {
     taskHolder.appendChild(timeElapsed);
 
     return taskHolder;
+}
+
+function localStorageSetup() {
+    //Check if index is already in use
+    var localStorageSet = checkLocalStorage("tracked");
+
+    if (localStorageSet) {
+
+        trackedItems = extractTrackedItems("tracked");
+
+        for (i = 0; i < trackedItems.length; i++) {
+            var payload = trackedItems[i].split(":");
+
+            var task = addTask(payload[1], payload[0]);
+
+
+            $("#tracking").prepend(task);
+        }
+    }
 }
