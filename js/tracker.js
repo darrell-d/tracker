@@ -135,8 +135,12 @@ function addTask(currentTime, taskName) {
     taskHolder.setAttribute("startTime", currentTime);
 
     var close = document.createElement("i");
-    close.setAttribute("class", "close");
-    close.innerHTML = '\u02DF';
+    close.setAttribute("class", "fa fa-times-circle close");
+    close.setAttribute("aria-hidden", "true");
+
+    var options = document.createElement("i");
+    options.setAttribute("class", "fa fa-bars options");
+    options.setAttribute("aria-hidden", "true");
 
     var trackerName = document.createElement("span");
     trackerName.setAttribute("class", "trackerName");
@@ -146,6 +150,7 @@ function addTask(currentTime, taskName) {
     timeElapsed.setAttribute("class", "timeElapsed");
 
     taskHolder.appendChild(close);
+    taskHolder.appendChild(options);
     taskHolder.appendChild(trackerName);
     taskHolder.appendChild(timeElapsed);
 
