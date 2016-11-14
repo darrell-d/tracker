@@ -5,9 +5,9 @@ body {
     line-height: 30px;
     background-color: #FFFFFF;
 }
-hr
-{
-    color:#FFB742;
+
+hr {
+    color: #FFB742;
     border: 1px solid #FFB742;
     margin: 15px 0px;
     width: 99%;
@@ -28,10 +28,10 @@ button {
     padding: 15px 35px;
     cursor: pointer;
     font-size: 16pt;
-    margin-right:15px;
+    margin-right: 15px;
 }
-button:hover
-{
+
+button:hover {
     background-color: #FFB742;
 }
 
@@ -45,53 +45,57 @@ button:hover
     margin-top: 50px;
     box-shadow: 4px 4px 0px #FFB742;
 }
-#clock
-{
+
+#clock {
     width: 201px;
     float: right;
 }
-#tracking
-{
-    width:100%;
+
+#tracking {
+    width: 100%;
 }
 
-.taskHolder
-{
+.taskHolder {
     margin: 15px 0px;
     border-bottom: 1px solid #102940;
     padding-bottom: 10px;
 }
-.close
-{
+
+.close {
     font-size: 24pt;
     vertical-align: initial;
     cursor: pointer;
     margin-right: 20px;
 }
-.trackerName
-{
+
+.trackerName {
     font-family: Arial;
-    font-size: 30pt;
+    font-size: 24pt;
+    font-weight: bold;
     margin-right: 20px;
 }
-.timeElapsed
-{
-    font-family: monospace;
+
+.timeElapsed {
+    font-family: 'Anonymous Pro', monospace;
     font-size: 24pt;
     float: right;
+    font-weight: bold;
 }
-.left, .right
-{
+
+.left,
+.right {
     display: inline-block;
 }
-.left
-{
-    width:100%;
+
+.left {
+    width: 100%;
 }
+
 .right {
     position: relative;
-    float:right;
+    float: right;
 }
+
 body {
     font-family: Arial;
     font-size: 12pt;
@@ -99,9 +103,9 @@ body {
     line-height: 30px;
     background-color: #FFFFFF;
 }
-hr
-{
-    color:#FFB742;
+
+hr {
+    color: #FFB742;
     border: 1px solid #FFB742;
     margin: 15px 0px;
     width: 65%;
@@ -122,10 +126,10 @@ button {
     padding: 15px 35px;
     cursor: pointer;
     font-size: 16pt;
-    margin-right:15px;
+    margin-right: 15px;
 }
-button:hover
-{
+
+button:hover {
     background-color: #FFB742;
 }
 
@@ -139,42 +143,31 @@ button:hover
     margin-top: 50px;
     box-shadow: 4px 4px 0px #FFB742;
 }
-#clock
-{
+
+#clock {
     width: 201px;
     float: right;
 }
 
-.taskHolder
-{
+.taskHolder {
     margin: 15px 0px;
     border-bottom: 1px solid #102940;
     padding-bottom: 10px;
 }
-.close
-{
+
+.close {
     font-size: 24pt;
     vertical-align: initial;
     margin- right: 10px;
     cursor: pointer;
     margin-right: 20px;
 }
-.trackerName
-{
-    font-family: Arial;
-    font-size: 30pt;
-    margin-right: 20px;
-}
-.timeElapsed
-{
-    font-family: monospace;
-    font-size: 24pt;
-}
-.left, .right
-{
+
+.left,
+.right {
     display: inline-block;
 }
-.right
-{
-    float:right;
+
+.right {
+    float: right;
 }
