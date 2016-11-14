@@ -136,7 +136,7 @@ function addTask(currentTime, taskName) {
 
     var close = document.createElement("i");
     close.setAttribute("class", "close");
-    close.innerHTML = '\u2A2F';
+    close.innerHTML = '\u02DF';
 
     var trackerName = document.createElement("span");
     trackerName.setAttribute("class", "trackerName");
